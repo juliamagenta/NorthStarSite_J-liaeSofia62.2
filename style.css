@@ -1214,3 +1214,37 @@ h3 {
     }
 
 }
+ /* Setinhas nos cartões da tela inicial */
+.cartao.atalho {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Formato da setinha */
+.cartao.atalho::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 15%;
+    width: 36px;
+    height: 70%;
+    background-color: #3d70a8;
+    clip-path: polygon(0 0, 100% 50%, 0 100%);
+}
+
+/* Cores individuais */
+.grade-2 .cartao-link:nth-child(1) .cartao::before {
+    background-color: #8a5c5c;
+}
+
+.grade-2 .cartao-link:nth-child(2) .cartao::before {
+    background-color: #3d70a8;
+}
+
+.grade-2 .cartao-link:nth-child(3) .cartao::before {
+    background-color: #588256;
+}
+
+.grade-2 .cartao-link:nth-child(4) .cartao::before {
+    background-color: #b6b38a;
+}
