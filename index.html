@@ -1,6 +1,7 @@
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,19 +21,138 @@
 
 <body>
 
-    <!-- Link de acessibilidade para pular diretamente ao conteúdo -->
-    <a class="pular-conteudo" href="#conteudo">
-        Pular para o conteúdo
-    </a>
+    <!-- =====================================
+         TELA INICIAL DE LOGIN
+    ====================================== -->
 
-    <div class="app-shell">
+    <section id="tela-login" class="tela-login" aria-label="Tela de login">
+
+        <div class="login-container">
+
+            <!-- Logo e apresentação -->
+            <div class="login-logo">
+
+                <span class="login-simbolo" aria-hidden="true">✦</span>
+
+                <h1>North Star</h1>
+
+                <p>Seu intercâmbio começa aqui.</p>
+
+            </div>
+
+            <!-- Formulário de entrada -->
+            <form id="form-login">
+
+                <div class="login-titulo">
+
+                    <h2>Bem-vindo(a)!</h2>
+
+                    <p>Entre para continuar sua jornada.</p>
+
+                </div>
+
+                <!-- Campo de nome -->
+                <div class="campo-login">
+
+                    <label for="nome-login">
+                        Nome completo
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nome-login"
+                        name="nome"
+                        placeholder="Digite seu nome"
+                        autocomplete="name"
+                        required
+                    >
+
+                </div>
+
+                <!-- Campo de e-mail -->
+                <div class="campo-login">
+
+                    <label for="email-login">
+                        E-mail
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email-login"
+                        name="email"
+                        placeholder="seuemail@exemplo.com"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+                <!-- Campo de senha -->
+                <div class="campo-login">
+
+                    <label for="senha-login">
+                        Senha
+                    </label>
+
+                    <input
+                        type="password"
+                        id="senha-login"
+                        name="senha"
+                        placeholder="Digite sua senha"
+                        autocomplete="current-password"
+                        minlength="6"
+                        required
+                    >
+
+                </div>
+
+                <!-- Botão de entrada -->
+                <button
+                    type="submit"
+                    class="botao-login"
+                >
+                    Entrar
+                </button>
+
+            </form>
+
+            <!-- Rodapé do login -->
+            <div class="login-rodape">
+
+                <p>
+                    O mundo é seu próximo destino.
+                </p>
+
+                <span aria-hidden="true">✦</span>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         APLICATIVO NORTH STAR
+         Inicialmente oculto até o login
+    ====================================== -->
+
+    <div class="app-shell" id="app-shell" hidden>
 
         <!-- MENU LATERAL -->
         <aside class="sidebar" aria-label="Navegação principal">
 
-            <a class="marca" href="#inicio" data-page="inicio" aria-label="North Star - página inicial">
+            <a
+                class="marca"
+                href="#inicio"
+                data-page="inicio"
+                aria-label="North Star - página inicial"
+            >
+
                 <span class="marca-simbolo" aria-hidden="true">✦</span>
+
                 <span>North<br>Star</span>
+
             </a>
 
             <p class="marca-frase">
@@ -42,33 +162,51 @@
             <nav class="nav-lateral">
 
                 <button class="nav-item ativo" data-page="inicio">
+
                     <span aria-hidden="true">⌂</span>
+
                     Início
+
                 </button>
 
                 <button class="nav-item" data-page="explorar">
+
                     <span aria-hidden="true">⌕</span>
+
                     Explorar
+
                 </button>
 
                 <button class="nav-item" data-page="chat">
+
                     <span aria-hidden="true">☏</span>
+
                     Chat
+
                 </button>
 
                 <button class="nav-item" data-page="cronograma">
+
                     <span aria-hidden="true">▤</span>
+
                     Meu cronograma
+
                 </button>
 
             </nav>
 
             <div class="sidebar-rodape">
+
                 <span class="mini-estrela" aria-hidden="true">✦</span>
-                <p>O mundo é seu<br>próximo destino.</p>
+
+                <p>
+                    O mundo é seu<br>próximo destino.
+                </p>
+
             </div>
 
         </aside>
+
 
         <!-- CONTEÚDO PRINCIPAL -->
         <main id="conteudo" class="conteudo" tabindex="-1">
@@ -77,6 +215,7 @@
             <header class="topbar">
 
                 <div>
+
                     <p class="saudacao-menor">
                         Seu guia de intercâmbio
                     </p>
@@ -84,6 +223,7 @@
                     <h1 id="titulo-pagina">
                         Olá, viajante!
                     </h1>
+
                 </div>
 
                 <button
@@ -92,45 +232,76 @@
                     aria-label="Ver notificações"
                     title="Notificações"
                 >
+
                     ♧
+
                     <span class="ponto-notificacao"></span>
+
                 </button>
 
             </header>
 
             <!-- AS TELAS SERÃO CARREGADAS AQUI PELO JAVASCRIPT -->
-            <div id="visual-pagina" aria-live="polite"></div>
+            <div
+                id="visual-pagina"
+                aria-live="polite"
+            ></div>
 
         </main>
 
     </div>
 
-    <!-- MENU INFERIOR PARA CELULARES -->
-    <nav class="nav-inferior" aria-label="Navegação para celular">
+
+    <!-- =====================================
+         MENU INFERIOR PARA CELULARES
+    ====================================== -->
+
+    <nav
+        class="nav-inferior"
+        id="nav-inferior"
+        aria-label="Navegação para celular"
+        hidden
+    >
 
         <button class="nav-item ativo" data-page="inicio">
+
             <span aria-hidden="true">⌂</span>
+
             Início
+
         </button>
 
         <button class="nav-item" data-page="explorar">
+
             <span aria-hidden="true">⌕</span>
+
             Explorar
+
         </button>
 
         <button class="nav-item" data-page="chat">
+
             <span aria-hidden="true">☏</span>
+
             Chat
+
         </button>
 
         <button class="nav-item" data-page="cronograma">
+
             <span aria-hidden="true">▤</span>
+
             Perfil
+
         </button>
 
     </nav>
 
-    <!-- AVISOS DE CONFIRMAÇÃO -->
+
+    <!-- =====================================
+         AVISOS DE CONFIRMAÇÃO
+    ====================================== -->
+
     <div
         id="anuncio"
         class="toast"
@@ -139,4 +310,5 @@
     ></div>
 
 </body>
+
 </html>

@@ -1027,3 +1027,190 @@ h3 {
     white-space: nowrap;
     border: 0;
 }
+
+/* ==========================================
+   TELA DE LOGIN - NORTH STAR
+   ========================================== */
+
+/* Fundo bege claro da tela inicial */
+.tela-login {
+       min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-image: url("fundo\ LOGIN\ \(2\).png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Cartão principal do login */
+.login-container {
+    width: 100%;
+    max-width: 420px;
+    padding: 35px;
+    background-color: #fff8e9;
+    border: 1px solid #e8dfcc;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(30, 60, 50, 0.08);
+    box-sizing: border-box;
+}
+
+/* Logo e apresentação do aplicativo */
+.login-logo {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-simbolo {
+    display: block;
+    color: #b28a45;
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.login-logo h1 {
+    color: #075344;
+    font-size: 2.5rem;
+    margin: 0 0 8px;
+}
+
+.login-logo p {
+    color: #52645d;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* Título e introdução do formulário */
+.login-titulo h2 {
+    color: #173d35;
+    font-size: 1.5rem;
+    margin: 0 0 8px;
+}
+
+.login-titulo p {
+    color: #69766f;
+    margin: 0 0 25px;
+}
+
+/* Organização dos campos */
+.campo-login {
+    margin-bottom: 18px;
+}
+
+/* Textos dos campos */
+.campo-login label {
+    display: block;
+    color: #173d35;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+/* Caixas de preenchimento */
+.campo-login input {
+    display: block;
+    width: 100%;
+    padding: 13px;
+    border: 1px solid #d8d5c9;
+    border-radius: 10px;
+    background-color: #ffffff;
+    color: #173d35;
+    font-family: inherit;
+    font-size: 1rem;
+    outline: none;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Destaque ao selecionar um campo */
+.campo-login input:focus {
+    border-color: #075344;
+    box-shadow: 0 0 0 3px rgba(7, 83, 68, 0.12);
+}
+
+/* Botão de entrada */
+.botao-login {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    margin-top: 28px;
+    border: none;
+    border-radius: 12px;
+    background-color: #075344;
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+/* Efeito ao passar o mouse */
+.botao-login:hover {
+    background-color: #0b6b57;
+    transform: translateY(-1px);
+}
+
+/* Destaque para navegação pelo teclado */
+.botao-login:focus-visible {
+    outline: 3px solid #b28a45;
+    outline-offset: 3px;
+}
+
+/* Rodapé da tela de login */
+.login-rodape {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 25px;
+    color: #494d4a;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+.login-rodape p {
+    margin: 0;
+}
+
+.login-rodape span {
+    color: #b28a45;
+}
+
+/* Esconde elementos que possuem o atributo hidden */
+[hidden] {
+    display: none !important;
+}
+
+/* ==========================================
+   RESPONSIVIDADE DO LOGIN
+   ========================================== */
+
+@media (max-width: 480px) {
+
+    /* Ajusta o espaço da tela em celulares */
+    .tela-login {
+        padding: 15px;
+         
+    }
+
+    /* Reduz o tamanho do cartão */
+    .login-container {
+        padding: 25px 20px;
+        border-radius: 16px;
+    }
+
+    /* Reduz o título da marca */
+    .login-logo h1 {
+        font-size: 2rem;
+    }
+
+    /* Ajusta os campos para telas menores */
+    .campo-login input {
+        font-size: 16px;
+    }
+
+}

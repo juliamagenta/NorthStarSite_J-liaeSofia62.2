@@ -1739,4 +1739,92 @@ document.addEventListener("submit", evento => {
    INICIALIZAÇÃO DO APLICATIVO
    ========================================================= */
 
-renderizar();
+
+/* =========================================================
+   LOGIN E INICIALIZAÇÃO DO APLICATIVO
+   ========================================================= */
+
+const CHAVE_USUARIO = "northStarUsuario";
+
+const telaLogin = document.getElementById("tela-login");
+const appShell = document.getElementById("app-shell");
+const navInferior = document.getElementById("nav-inferior");
+const formularioLogin = document.getElementById("form-login");
+
+// Mostra a tela de login e esconde o aplicativo
+function mostrarLogin() {
+    telaLogin.hidden = false;
+    appShell.hidden = true;
+
+    if (navInferior) {
+        navInferior.hidden = true;
+    }
+}
+
+// Libera o acesso ao aplicativo após o login
+function mostrarHome(usuario) {
+    telaLogin.hidden = true;
+    appShell.hidden = false;
+
+    if (navInferior) {
+        navInferior.hidden = false;
+    }
+
+    // Atualiza o nome do usuário na página inicial
+    dados.perfil.nome = usuario.nome.trim().split(/\s+/)[0];
+
+    // Abre a página inicial
+    paginaAtual = "inicio";
+    renderizar();
+}
+
+// Verifica se o usuário já realizou o login
+function verificarLogin() {
+    const dadosSalvos = localStorage.getItem(CHAVE_USUARIO);
+
+    if (dadosSalvos) {
+        try {
+            const usuario = JSON.parse(dadosSalvos);
+
+            if (usuario && usuario.nome && usuario.email) {
+                mostrarHome(usuario);
+                return;
+            }
+        } catch (erro) {
+            console.warn("Erro ao verificar login:", erro);
+        }
+    }
+
+    mostrarLogin();
+}
+
+// Só entra no aplicativo quando clicar no botão
+formularioLogin.addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const nome = document.getElementById("nome-login").value.trim();
+    const email = document.getElementById("email-login").value.trim();
+    const senha = document.getElementById("senha-login").value;
+
+    if (!nome || !email || !senha) {
+        alert("Preencha todos os campos para continuar!");
+        return;
+    }
+
+    if (senha.length < 6) {
+        alert("A senha precisa ter pelo menos 6 caracteres.");
+        return;
+    }
+
+    const usuario = {
+        nome: nome,
+        email: email
+    };
+
+    localStorage.setItem(CHAVE_USUARIO, JSON.stringify(usuario));
+
+    mostrarHome(usuario);
+});
+
+// Inicializa o aplicativo
+verificarLogin();
