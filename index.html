@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="North Star: organize seu intercâmbio com informações, dicas, agenda e cronograma personalizado.">
+
+    <meta name="theme-color" content="#f5efdf">
+
+    <title>North Star | Seu intercâmbio começa aqui</title>
+
+    <!-- Conexão com o CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Conexão com o JavaScript -->
+    <script src="java.js" defer></script>
+</head>
+
+<body>
+
+    <!-- Link de acessibilidade para pular diretamente ao conteúdo -->
+    <a class="pular-conteudo" href="#conteudo">
+        Pular para o conteúdo
+    </a>
+
+    <div class="app-shell">
+
+        <!-- MENU LATERAL -->
+        <aside class="sidebar" aria-label="Navegação principal">
+
+            <a class="marca" href="#inicio" data-page="inicio" aria-label="North Star - página inicial">
+                <span class="marca-simbolo" aria-hidden="true">✦</span>
+                <span>North<br>Star</span>
+            </a>
+
+            <p class="marca-frase">
+                Seu intercâmbio<br>começa aqui.
+            </p>
+
+            <nav class="nav-lateral">
+
+                <button class="nav-item ativo" data-page="inicio">
+                    <span aria-hidden="true">⌂</span>
+                    Início
+                </button>
+
+                <button class="nav-item" data-page="explorar">
+                    <span aria-hidden="true">⌕</span>
+                    Explorar
+                </button>
+
+                <button class="nav-item" data-page="chat">
+                    <span aria-hidden="true">☏</span>
+                    Chat
+                </button>
+
+                <button class="nav-item" data-page="cronograma">
+                    <span aria-hidden="true">▤</span>
+                    Meu cronograma
+                </button>
+
+            </nav>
+
+            <div class="sidebar-rodape">
+                <span class="mini-estrela" aria-hidden="true">✦</span>
+                <p>O mundo é seu<br>próximo destino.</p>
+            </div>
+
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main id="conteudo" class="conteudo" tabindex="-1">
+
+            <!-- CABEÇALHO -->
+            <header class="topbar">
+
+                <div>
+                    <p class="saudacao-menor">
+                        Seu guia de intercâmbio
+                    </p>
+
+                    <h1 id="titulo-pagina">
+                        Olá, viajante!
+                    </h1>
+                </div>
+
+                <button
+                    class="botao-icone"
+                    id="botao-notificacoes"
+                    aria-label="Ver notificações"
+                    title="Notificações"
+                >
+                    ♧
+                    <span class="ponto-notificacao"></span>
+                </button>
+
+            </header>
+
+            <!-- AS TELAS SERÃO CARREGADAS AQUI PELO JAVASCRIPT -->
+            <div id="visual-pagina" aria-live="polite"></div>
+
+        </main>
+
+    </div>
+
+    <!-- MENU INFERIOR PARA CELULARES -->
+    <nav class="nav-inferior" aria-label="Navegação para celular">
+
+        <button class="nav-item ativo" data-page="inicio">
+            <span aria-hidden="true">⌂</span>
+            Início
+        </button>
+
+        <button class="nav-item" data-page="explorar">
+            <span aria-hidden="true">⌕</span>
+            Explorar
+        </button>
+
+        <button class="nav-item" data-page="chat">
+            <span aria-hidden="true">☏</span>
+            Chat
+        </button>
+
+        <button class="nav-item" data-page="cronograma">
+            <span aria-hidden="true">▤</span>
+            Perfil
+        </button>
+
+    </nav>
+
+    <!-- AVISOS DE CONFIRMAÇÃO -->
+    <div
+        id="anuncio"
+        class="toast"
+        role="status"
+        aria-live="polite"
+    ></div>
+
+</body>
+</html>
