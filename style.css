@@ -1,0 +1,1029 @@
+
+/* =========================================================
+   NORTH STAR — ESTILOS GERAIS
+
+   Paleta:
+   Bege claro, verde profundo, azul e vermelho suave.
+
+   Os blocos estão identificados em português para facilitar
+   a localização e a manutenção do código.
+   ========================================================= */
+
+:root {
+    --bege-fundo: #f5efdf;
+    --bege-claro: #fffaf0;
+    --bege-cartao: #fbf7ec;
+
+    --verde: #075344;
+    --verde-escuro: #063f35;
+    --verde-claro: #dce9df;
+
+    --azul: #194d78;
+    --vermelho: #c9363c;
+
+    --tinta: #173b3b;
+    --tinta-suave: #5c7470;
+
+    --borda: #e5dfd0;
+
+    --sombra: 0 10px 28px rgba(47, 57, 45, .07);
+
+    --raio: 18px;
+
+    font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+
+/* CONFIGURAÇÕES GERAIS */
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    background: var(--bege-fundo);
+    color: var(--tinta);
+    min-height: 100vh;
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* ACESSIBILIDADE E FOCO DO TECLADO */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid #d35b5b;
+    outline-offset: 3px;
+}
+
+.pular-conteudo {
+    position: absolute;
+    left: -9999px;
+    top: 8px;
+    z-index: 100;
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+.pular-conteudo:focus {
+    left: 8px;
+}
+
+
+/* =========================================================
+   ESTRUTURA PRINCIPAL E MENU LATERAL
+   ========================================================= */
+
+.app-shell {
+    display: grid;
+    grid-template-columns: 245px minmax(0, 1fr);
+    max-width: 1440px;
+    margin: auto;
+    min-height: 100vh;
+}
+
+.sidebar {
+    background: #f8f1e2;
+    border-right: 1px solid var(--borda);
+    padding: 32px 20px 24px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+
+/* LOGO NORTH STAR */
+
+.marca {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    color: var(--verde);
+    text-decoration: none;
+
+    font-family: Georgia, serif;
+    font-size: 37px;
+    font-weight: bold;
+    line-height: .85;
+}
+
+.marca-simbolo {
+    font-size: 68px;
+    color: var(--vermelho);
+    text-shadow: 9px 0 var(--azul);
+}
+
+.marca-frase {
+    text-align: center;
+    line-height: 1.5;
+    margin: 18px 0 36px;
+    font-size: 15px;
+}
+
+
+/* ÍCONES E BOTÕES DO MENU LATERAL */
+
+.nav-lateral {
+    width: 100%;
+    display: grid;
+    gap: 9px;
+    margin-top: auto;
+}
+
+.nav-item {
+    border: 0;
+    background: transparent;
+    color: var(--tinta-suave);
+    border-radius: 12px;
+    padding: 12px 14px;
+
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    text-align: left;
+    transition: background .2s, color .2s;
+}
+
+.nav-item span {
+    font-size: 22px;
+    width: 24px;
+    text-align: center;
+}
+
+.nav-item:hover,
+.nav-item.ativo {
+    background: var(--verde);
+    color: white;
+}
+
+
+/* RODAPÉ DO MENU LATERAL */
+
+.sidebar-rodape {
+    text-align: center;
+    color: var(--tinta-suave);
+    margin-top: auto;
+    font-size: 13px;
+}
+
+.mini-estrela {
+    color: var(--vermelho);
+    font-size: 30px;
+}
+
+
+/* =========================================================
+   ÁREA DE CONTEÚDO, CABEÇALHO E BOTÕES
+   ========================================================= */
+
+.conteudo {
+    width: 100%;
+    max-width: 1100px;
+    padding: 28px clamp(20px, 4vw, 56px) 60px;
+    margin: 0 auto;
+    min-width: 0;
+}
+
+
+/* CABEÇALHO SUPERIOR */
+
+.topbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.saudacao-menor {
+    color: var(--tinta-suave);
+    font-size: 13px;
+    margin: 0 0 4px;
+}
+
+.topbar h1 {
+    font-size: clamp(24px, 3vw, 32px);
+    margin: 0;
+}
+
+
+/* BOTÃO DE NOTIFICAÇÕES */
+
+.botao-icone {
+    border: 1px solid var(--borda);
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    background: var(--bege-claro);
+    color: var(--verde);
+    position: relative;
+    font-size: 21px;
+}
+
+.ponto-notificacao {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: var(--vermelho);
+    border-radius: 50%;
+    top: 8px;
+    right: 7px;
+    border: 1px solid white;
+}
+
+
+/* BOTÕES PRINCIPAIS */
+
+.botao-principal,
+.botao-secundario {
+    border: 0;
+    border-radius: 999px;
+    padding: 12px 20px;
+    font-weight: bold;
+    background: var(--verde);
+    color: white;
+    transition: transform .15s, background .15s;
+}
+
+.botao-principal:hover {
+    background: var(--verde-escuro);
+    transform: translateY(-1px);
+}
+
+.botao-secundario {
+    background: var(--verde-claro);
+    color: var(--verde);
+}
+
+.botao-perigo {
+    background: #f8e5e2;
+    color: #a72d32;
+    border: 0;
+    border-radius: 10px;
+    padding: 8px 11px;
+}
+
+
+/* TEXTOS E TÍTULOS */
+
+.texto-suave {
+    color: var(--tinta-suave);
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+h2 {
+    font-size: 21px;
+    margin: 0 0 14px;
+}
+
+h3 {
+    font-size: 16px;
+    margin: 0 0 6px;
+}
+
+.secao {
+    margin: 26px 0;
+}
+
+
+/* =========================================================
+   CARTÕES E ORGANIZAÇÃO EM GRADE
+   ========================================================= */
+
+.grade {
+    display: grid;
+    gap: 14px;
+}
+
+.grade-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.grade-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.cartao {
+    background: var(--bege-claro);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+    padding: 18px;
+    box-shadow: var(--sombra);
+    min-width: 0;
+}
+
+.cartao-linha {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+/* ÍCONES DOS CARTÕES */
+
+.icone-cartao {
+    flex: 0 0 44px;
+    height: 44px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 13px;
+    background: var(--verde);
+    color: white;
+    font-size: 23px;
+}
+
+.icone-cartao.vermelho {
+    background: var(--vermelho);
+}
+
+.icone-cartao.azul {
+    background: var(--azul);
+}
+
+.icone-cartao.claro {
+    background: var(--verde-claro);
+    color: var(--verde);
+}
+
+
+/* EFEITO DOS CARTÕES CLICÁVEIS */
+
+.cartao-link {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+}
+
+.cartao-link:hover .cartao {
+    border-color: var(--verde);
+    transform: translateY(-2px);
+}
+
+.cartao,
+.cartao-link .cartao {
+    transition: transform .2s, border-color .2s;
+}
+
+
+/* =========================================================
+   BANNER ILUSTRADO DA PÁGINA INICIAL
+   ========================================================= */
+
+.banner-inicio {
+    border-radius: 20px;
+    min-height: 190px;
+    padding: 25px 28px;
+    overflow: hidden;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background: linear-gradient(
+        110deg,
+        #dce9df 0%,
+        #f1e5ce 65%,
+        #e5d4b7 100%
+    );
+
+    border: 1px solid #ded9c9;
+}
+
+
+/* AVIÃO DECORATIVO DO BANNER */
+
+.banner-inicio::after {
+    content: "✈";
+    position: absolute;
+    right: 8%;
+    bottom: 5px;
+    font-size: clamp(90px, 15vw, 170px);
+    color: var(--azul);
+    opacity: .9;
+    transform: rotate(-9deg);
+}
+
+
+/* NUVENS DECORATIVAS */
+
+.banner-inicio::before {
+    content: "☁     ☁";
+    position: absolute;
+    right: 6%;
+    top: 18px;
+    color: white;
+    font-size: 35px;
+    opacity: .8;
+}
+
+
+/* TEXTO DO BANNER */
+
+.banner-texto {
+    position: relative;
+    z-index: 1;
+    max-width: 330px;
+}
+
+.banner-texto h2 {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.banner-texto p {
+    margin: 0 0 15px;
+    max-width: 260px;
+    line-height: 1.4;
+}
+
+.banner-texto .botao-principal {
+    background: white;
+    color: var(--verde);
+    padding: 9px 22px;
+}
+
+
+/* ATALHOS DA TELA INICIAL */
+
+.atalho {
+    text-align: center;
+    min-height: 115px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.atalho .icone-cartao {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+    border-radius: 12px;
+}
+
+.atalho strong {
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   CAMPOS DE PESQUISA, FILTROS E LISTAS
+   ========================================================= */
+
+.campo-pesquisa {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+
+    background: var(--bege-claro);
+    border: 1px solid var(--borda);
+    border-radius: 13px;
+
+    padding: 0 14px;
+    margin: 15px 0;
+}
+
+.campo-pesquisa span {
+    font-size: 20px;
+    color: var(--tinta-suave);
+}
+
+.campo-pesquisa input {
+    border: 0;
+    outline: 0;
+    background: transparent;
+    padding: 14px 0;
+    width: 100%;
+    min-width: 0;
+    color: var(--tinta);
+}
+
+
+/* BOTÕES DE FILTRO */
+
+.filtros {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 14px 0;
+}
+
+.filtro {
+    border: 1px solid var(--borda);
+    background: #fdf9ef;
+    color: var(--tinta-suave);
+    border-radius: 99px;
+    padding: 8px 14px;
+    font-size: 13px;
+}
+
+.filtro.ativo {
+    background: var(--verde);
+    color: white;
+    border-color: var(--verde);
+}
+
+
+/* LISTAS DE DOCUMENTOS E PAÍSES */
+
+.lista {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.lista-item {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--borda);
+}
+
+.lista-item:last-child {
+    border-bottom: 0;
+}
+
+.lista-item .detalhes {
+    flex: 1;
+    min-width: 0;
+}
+
+.lista-item p {
+    margin: 3px 0 0;
+    color: var(--tinta-suave);
+    font-size: 13px;
+}
+
+
+/* BANDEIRAS DOS PAÍSES */
+
+.bandeira {
+    font-size: 28px;
+    width: 40px;
+    text-align: center;
+}
+
+.seta {
+    color: var(--azul);
+    font-size: 23px;
+}
+
+
+/* =========================================================
+   FORMULÁRIOS E CONTEÚDOS INTERNOS
+   ========================================================= */
+
+.formulario {
+    display: grid;
+    gap: 12px;
+}
+
+.formulario label {
+    font-size: 13px;
+    font-weight: bold;
+    display: grid;
+    gap: 6px;
+}
+
+.formulario input,
+.formulario select,
+.formulario textarea {
+    width: 100%;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    padding: 12px;
+    background: #fffdf7;
+    color: var(--tinta);
+    min-width: 0;
+}
+
+.formulario textarea {
+    min-height: 85px;
+    resize: vertical;
+}
+
+
+/* ABAS DE CUSTOS E DOCUMENTOS */
+
+.abas {
+    display: flex;
+    gap: 8px;
+    padding: 5px;
+    border: 1px solid var(--borda);
+    border-radius: 14px;
+    background: #f0eadb;
+    margin: 15px 0;
+}
+
+.aba {
+    flex: 1;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px;
+    color: var(--tinta-suave);
+    background: transparent;
+}
+
+.aba.ativo {
+    background: var(--verde);
+    color: white;
+}
+
+
+/* AVISOS INFORMATIVOS */
+
+.nota {
+    background: #e6eadc;
+    border-radius: 13px;
+    padding: 15px;
+    color: #3e5c50;
+    font-size: 13px;
+    line-height: 1.5;
+}
+
+.vazio {
+    text-align: center;
+    color: var(--tinta-suave);
+    padding: 24px;
+}
+
+
+/* BARRA DE PROGRESSO DO CRONOGRAMA */
+
+.barra-progresso {
+    height: 8px;
+    background: #e6e1d4;
+    border-radius: 20px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.barra-progresso span {
+    display: block;
+    height: 100%;
+    background: var(--verde);
+    width: 35%;
+    border-radius: inherit;
+}
+
+
+/* =========================================================
+   AGENDA, CHAT E CRONOGRAMA
+   ========================================================= */
+
+
+/* CALENDÁRIO */
+
+.dias-semana {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+    font-size: 12px;
+}
+
+.dia {
+    padding: 10px 2px;
+    border-radius: 9px;
+}
+
+.dia.ativo {
+    background: var(--verde);
+    color: white;
+}
+
+
+/* EVENTOS DA AGENDA */
+
+.evento {
+    display: flex;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--borda);
+    align-items: center;
+}
+
+.evento:last-child {
+    border: 0;
+}
+
+.check-evento {
+    accent-color: var(--verde);
+    width: 18px;
+    height: 18px;
+}
+
+.evento.concluido .evento-titulo {
+    text-decoration: line-through;
+    color: #8b9992;
+}
+
+
+/* MENSAGENS DO CHAT */
+
+.chat-mensagem {
+    background: #e3ecdf;
+    padding: 12px 14px;
+    border-radius: 5px 15px 15px 15px;
+    max-width: 88%;
+    margin: 9px 0;
+    font-size: 14px;
+    line-height: 1.45;
+}
+
+.chat-mensagem.propria {
+    background: var(--verde);
+    color: white;
+    margin-left: auto;
+    border-radius: 15px 5px 15px 15px;
+}
+
+
+/* CAMPO PARA ESCREVER MENSAGENS */
+
+.chat-compor {
+    display: flex;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.chat-compor input {
+    flex: 1;
+    min-width: 0;
+    border: 1px solid var(--borda);
+    background: white;
+    border-radius: 99px;
+    padding: 12px 15px;
+}
+
+
+/* ETAPAS DO CRONOGRAMA */
+
+.etapa {
+    position: relative;
+    padding: 0 0 23px 27px;
+    border-left: 2px solid #d6dfd6;
+    margin-left: 8px;
+}
+
+.etapa::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: var(--verde);
+    left: -8px;
+    top: 3px;
+    border: 2px solid var(--bege-claro);
+}
+
+.etapa.pendente::before {
+    background: var(--vermelho);
+}
+
+.etapa small {
+    color: var(--tinta-suave);
+}
+
+
+/* =========================================================
+   MENU INFERIOR PARA CELULARES
+   ========================================================= */
+
+.nav-inferior {
+    display: none;
+}
+
+
+/* =========================================================
+   AVISOS DE CONFIRMAÇÃO
+   ========================================================= */
+
+.toast {
+    position: fixed;
+    left: 50%;
+    bottom: 24px;
+
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    pointer-events: none;
+
+    background: var(--verde-escuro);
+    color: white;
+
+    padding: 12px 20px;
+    border-radius: 99px;
+    box-shadow: var(--sombra);
+
+    transition: .25s;
+    z-index: 20;
+
+    text-align: center;
+    max-width: calc(100vw - 30px);
+}
+
+.toast.visivel {
+    opacity: 1;
+    transform: translate(-50%, 0);
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE PARA TABLETS
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .app-shell {
+        grid-template-columns: 190px minmax(0, 1fr);
+    }
+
+    .sidebar {
+        padding: 25px 13px;
+    }
+
+    .marca {
+        font-size: 30px;
+    }
+
+    .marca-simbolo {
+        font-size: 55px;
+    }
+
+    .conteudo {
+        padding: 24px 22px 45px;
+    }
+
+    .grade-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+
+/* =========================================================
+   RESPONSIVIDADE PARA CELULARES
+   Menu inferior, cartões em uma coluna e sem rolagem horizontal.
+   ========================================================= */
+
+@media (max-width: 640px) {
+
+    .app-shell {
+        display: block;
+        min-height: 100vh;
+    }
+
+    /* Esconde o menu lateral no celular */
+    .sidebar {
+        display: none;
+    }
+
+    .conteudo {
+        padding: 22px 16px 100px;
+    }
+
+    .topbar {
+        margin-bottom: 18px;
+    }
+
+    .topbar h1 {
+        font-size: 25px;
+    }
+
+    /* Cartões ficam empilhados */
+    .grade-2,
+    .grade-3 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Banner adaptado para telas estreitas */
+    .banner-inicio {
+        min-height: 215px;
+        padding: 20px;
+    }
+
+    .banner-inicio::after {
+        right: -3%;
+        bottom: 0;
+        font-size: 112px;
+        opacity: .42;
+    }
+
+    .banner-inicio::before {
+        right: 5%;
+    }
+
+    .banner-texto {
+        max-width: 75%;
+    }
+
+    .banner-texto h2 {
+        font-size: 22px;
+    }
+
+    .cartao {
+        padding: 15px;
+    }
+
+    /* Menu fixo na parte inferior do celular */
+    .nav-inferior {
+        display: flex;
+        position: fixed;
+        z-index: 10;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background: rgba(255, 250, 240, .97);
+        border-top: 1px solid var(--borda);
+
+        justify-content: space-around;
+
+        padding: 8px 4px calc(8px + env(safe-area-inset-bottom));
+
+        box-shadow: 0 -5px 18px rgba(40, 50, 40, .06);
+    }
+
+    .nav-inferior .nav-item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        align-items: center;
+        padding: 5px 9px;
+        font-size: 11px;
+        border-radius: 10px;
+    }
+
+    .nav-inferior .nav-item span {
+        font-size: 21px;
+    }
+
+    .dias-semana {
+        font-size: 10px;
+    }
+
+    .dia {
+        padding: 9px 0;
+    }
+}
+
+
+/* RESPEITA A PREFERÊNCIA POR MENOS ANIMAÇÕES */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+    }
+}
+
+
+/* TEXTO ACESSÍVEL PARA LEITORES DE TELA */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
